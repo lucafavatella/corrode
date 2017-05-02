@@ -31,6 +31,7 @@ navigating to the `corrode` directory, installing the `happy` and `alex` tools,
 and then building and installing the `corrode` package:
 
 ```
+cabal update
 cabal install happy
 cabal install alex
 cabal install
@@ -109,8 +110,8 @@ replace the original C, not just as an intermediate step in a compiler
 toolchain.
 
 Corrode aims to produce Rust source code which behaves exactly the same
-way that the original C source behaved, if the input is free of
-undefined and implementation-defined behavior. In the presence of
+way that the original C source behaved (if the input is free of
+undefined and implementation-defined behavior). In the presence of
 undefined behavior, we've tried to pick a behavior that isn't too
 surprising. For example, if a signed addition might overflow (which is
 undefined behavior in C), Corrode just translates it to Rust's `+`
@@ -119,7 +120,7 @@ operator, which panics on overflow in debug builds.
 The compiled Rust source in turn will be ABI-compatible with the
 original C. If you compile Corrode-generated Rust to a `.o` file, you
 can link to it exactly as if it were generated from the original C.
-Every function that Corrode generates with be annotated with the `extern
+Every function that Corrode generates will be annotated with the `extern
 "C"` modifier.
 
 At the same time, Corrode should produce code which is recognizably
