@@ -8,3 +8,7 @@ doc/cfg.pdf: src/Language/Rust/Corrode/CFG.md
 
 doc/driver.pdf: Main.md
 	pandoc --from markdown --to latex --variable papersize=letter --variable geometry=margin=1in --output "$@" "$^"
+
+.PHONY: docker
+docker:
+	docker build .
