@@ -9,6 +9,16 @@ env:
 
 matrix:
   include:
+    - env: GHCVER=8.0.2
+      before_install:
+        - mkdir -p ~/.local/bin
+        - export PATH=$HOME/.local/bin:$PATH
+        - travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+      install:
+        - echo $PATH
+        - stack build
+      script:
+        - stack test
     - env:
       before_install: true
       install: true

@@ -22,4 +22,8 @@ docs-on-docker: corrode-docs-builder
 
 .PHONY: docker
 docker:
+ifdef BUILD_GHCVER
+	docker build --build-arg GHCVER=$${BUILD_GHCVER:?} --build-arg HAPPYVER=$${BUILD_HAPPYVER:?} --build-arg ALEXVER=$${BUILD_ALEXVER:?} .
+else
 	docker build .
+endif
