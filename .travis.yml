@@ -13,6 +13,10 @@ matrix:
       before_install: true
       install: true
       script: make docker
+    - env:
+      before_install: true
+      install: true
+      script: make docs-on-docker
   # Allow for develop branch to break
   allow_failures:
    - env: GHCVER=head CABALVER=head
