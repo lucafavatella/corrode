@@ -7,8 +7,13 @@ env:
  - GHCVER=8.0.1 CABALVER=1.22
  - GHCVER=head CABALVER=head
 
-# Allow for develop branch to break
 matrix:
+  include:
+    - env:
+      before_install: true
+      install: true
+      script: make docker
+  # Allow for develop branch to break
   allow_failures:
    - env: GHCVER=head CABALVER=head
 
