@@ -26,6 +26,18 @@ matrix:
     - env:
       before_install: true
       install: true
+      script: make docker-8.2.2
+    - env:
+      before_install: true
+      install: true
+      script: make docker-8.4.4
+    - env:
+      before_install: true
+      install: true
+      script: make docker-8.6.3
+    - env:
+      before_install: true
+      install: true
       script: make docs-on-docker
   # Allow for develop branch to break
   allow_failures:

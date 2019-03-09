@@ -27,3 +27,15 @@ ifdef BUILD_GHCVER
 else
 	docker build .
 endif
+
+.PHONY: docker-8.2.2
+docker-8.2.2: docker-%:
+	$(MAKE) docker BUILD_GHCVER=$* BUILD_HAPPYVER=1.19.9 BUILD_ALEXVER=3.2.4
+
+.PHONY: docker-8.4.4
+docker-8.4.4: docker-%:
+	$(MAKE) docker BUILD_GHCVER=$* BUILD_HAPPYVER=1.19.9 BUILD_ALEXVER=3.2.4
+
+.PHONY: docker-8.6.3
+docker-8.6.3: docker-%:
+	$(MAKE) docker BUILD_GHCVER=$* BUILD_HAPPYVER=1.19.9 BUILD_ALEXVER=3.2.4
