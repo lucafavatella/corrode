@@ -1,3 +1,4 @@
+.PHONY: docs
 docs: doc/corrode.pdf doc/cfg.pdf doc/driver.pdf
 
 doc/corrode.pdf: src/Language/Rust/Corrode/C.md
