@@ -1,6 +1,12 @@
 # Sudo used for custom apt setup
 sudo: true
 
+cache:
+  directories:
+  - $HOME/.ghc
+  - $HOME/.cabal
+  - $HOME/.stack
+
 # Add new environments to the build here:
 env:
  - GHCVER=7.10.1 CABALVER=1.22
